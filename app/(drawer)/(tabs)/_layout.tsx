@@ -12,8 +12,16 @@ import { useClientOnlyValue } from "@/components/useClientOnlyValue";
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof Ionicons>["name"];
   color: string;
+  focused: boolean;
 }) {
-  return <Ionicons size={28} style={{ marginBottom: -3 }} {...props} />;
+  return (
+    <Ionicons
+      size={28}
+      style={{ marginBottom: -3 }}
+      name={props.name}
+      color={props.color}
+    />
+  );
 }
 
 export default function TabLayout() {
@@ -32,8 +40,12 @@ export default function TabLayout() {
         name="meal-plan"
         options={({ navigation }) => ({
           title: "Meal Plan",
-          tabBarIcon: ({ color }) => (
-            <TabBarIcon name="restaurant-outline" color={color} />
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "restaurant" : "restaurant-outline"}
+              color={color}
+              focused={focused}
+            />
           ),
           headerLeft: () => (
             <Pressable
@@ -67,8 +79,12 @@ export default function TabLayout() {
         name="workouts"
         options={{
           title: "Workouts",
-          tabBarIcon: ({ color }) => (
-            <TabBarIcon name="barbell-outline" color={color} />
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "barbell" : "barbell-outline"}
+              color={color}
+              focused={focused}
+            />
           ),
         }}
       />
@@ -76,8 +92,12 @@ export default function TabLayout() {
         name="index"
         options={{
           title: "LMTLSS",
-          tabBarIcon: ({ color }) => (
-            <TabBarIcon name="flame-outline" color={color} />
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "flame" : "flame-outline"}
+              color={color}
+              focused={focused}
+            />
           ),
         }}
       />
@@ -85,8 +105,12 @@ export default function TabLayout() {
         name="macros"
         options={{
           title: "Macros",
-          tabBarIcon: ({ color }) => (
-            <TabBarIcon name="pie-chart-outline" color={color} />
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "pie-chart" : "pie-chart-outline"}
+              color={color}
+              focused={focused}
+            />
           ),
         }}
       />
@@ -94,8 +118,12 @@ export default function TabLayout() {
         name="progress"
         options={{
           title: "Progress",
-          tabBarIcon: ({ color }) => (
-            <TabBarIcon name="stats-chart-outline" color={color} />
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "stats-chart" : "stats-chart-outline"}
+              color={color}
+              focused={focused}
+            />
           ),
         }}
       />
