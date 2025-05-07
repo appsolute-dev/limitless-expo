@@ -31,7 +31,9 @@ export default function TabLayout() {
         name="meal-plan"
         options={{
           title: "Meal Plan",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="cutlery" color={color} />
+          ),
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>
@@ -52,28 +54,32 @@ export default function TabLayout() {
         name="workouts"
         options={{
           title: "Workouts",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="bolt" color={color} />,
         }}
       />
       <Tabs.Screen
         name="index"
         options={{
           title: "LMTLSS",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="fire" color={color} />,
         }}
       />
       <Tabs.Screen
         name="macros"
         options={{
           title: "Macros",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="pie-chart" color={color} />
+          ),
         }}
       />
       <Tabs.Screen
         name="progress"
         options={{
           title: "Progress",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="line-chart" color={color} />
+          ),
         }}
       />
     </Tabs>
