@@ -2,6 +2,7 @@ import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { Link, Tabs } from "expo-router";
 import { Pressable } from "react-native";
+import { DrawerActions } from "@react-navigation/native";
 
 import Colors from "@/constants/Colors";
 import { useColorScheme } from "@/components/useColorScheme";
@@ -29,10 +30,22 @@ export default function TabLayout() {
     >
       <Tabs.Screen
         name="meal-plan"
-        options={{
+        options={({ navigation }) => ({
           title: "Meal Plan",
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="restaurant-outline" color={color} />
+          ),
+          headerLeft: () => (
+            <Pressable
+              onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
+              style={{ marginLeft: 15 }}
+            >
+              <Ionicons
+                name="menu-outline"
+                size={30}
+                color={Colors[colorScheme ?? "light"].text}
+              />
+            </Pressable>
           ),
           headerRight: () => (
             <Link href="/modal" asChild>
@@ -48,7 +61,7 @@ export default function TabLayout() {
               </Pressable>
             </Link>
           ),
-        }}
+        })}
       />
       <Tabs.Screen
         name="workouts"
