@@ -1,5 +1,5 @@
 import React from "react";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { Ionicons } from "@expo/vector-icons";
 import { Link, Tabs } from "expo-router";
 import { Pressable } from "react-native";
 
@@ -9,10 +9,10 @@ import { useClientOnlyValue } from "@/components/useClientOnlyValue";
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
 function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>["name"];
+  name: React.ComponentProps<typeof Ionicons>["name"];
   color: string;
 }) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
+  return <Ionicons size={28} style={{ marginBottom: -3 }} {...props} />;
 }
 
 export default function TabLayout() {
@@ -32,7 +32,7 @@ export default function TabLayout() {
         options={{
           title: "Meal Plan",
           tabBarIcon: ({ color }) => (
-            <TabBarIcon name="cutlery" color={color} />
+            <TabBarIcon name="restaurant-outline" color={color} />
           ),
           headerRight: () => (
             <Link href="/modal" asChild>
@@ -54,14 +54,18 @@ export default function TabLayout() {
         name="workouts"
         options={{
           title: "Workouts",
-          tabBarIcon: ({ color }) => <TabBarIcon name="bolt" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="barbell-outline" color={color} />
+          ),
         }}
       />
       <Tabs.Screen
         name="index"
         options={{
           title: "LMTLSS",
-          tabBarIcon: ({ color }) => <TabBarIcon name="fire" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="flame-outline" color={color} />
+          ),
         }}
       />
       <Tabs.Screen
@@ -69,7 +73,7 @@ export default function TabLayout() {
         options={{
           title: "Macros",
           tabBarIcon: ({ color }) => (
-            <TabBarIcon name="pie-chart" color={color} />
+            <TabBarIcon name="pie-chart-outline" color={color} />
           ),
         }}
       />
@@ -78,7 +82,7 @@ export default function TabLayout() {
         options={{
           title: "Progress",
           tabBarIcon: ({ color }) => (
-            <TabBarIcon name="line-chart" color={color} />
+            <TabBarIcon name="stats-chart-outline" color={color} />
           ),
         }}
       />
