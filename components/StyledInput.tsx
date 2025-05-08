@@ -1,12 +1,7 @@
 import React from "react";
-import {
-  TextInput,
-  View,
-  Text,
-  TextInputProps,
-} from "react-native";
+import { TextInput, View, Text, TextInputProps } from "react-native";
 // Assuming Colors and useColorScheme are for dynamic theming not directly handled by Tailwind here without config
-// import Colors from "@/constants/Colors"; 
+// import Colors from "@/constants/Colors";
 // import { useColorScheme } from "@/components/useColorScheme";
 
 interface StyledInputProps extends TextInputProps {
@@ -33,26 +28,26 @@ const StyledInput: React.FC<StyledInputProps> = ({
   // Background color can be bg-white dark:bg-gray-800 for example
 
   return (
-    <View className="mb-4"> {/* Changed from marginBottom: 15 */}
+    <View className="mb-4">
+      {" "}
+      {/* Changed from marginBottom: 15 */}
       {label && (
-        <Text className="mb-1 text-sm text-gray-700 dark:text-gray-300">{/* Changed from styles.label */}
+        <Text className="mb-1 text-sm text-gray-700 dark:text-gray-300">
+          {/* Changed from styles.label */}
           {label}
         </Text>
       )}
       <TextInput
-        className={`${
-          inputBaseClasses
-        } ${
-          borderColorClass
-        } text-gray-900 dark:text-white bg-white dark:bg-gray-700 placeholder:text-gray-500 dark:placeholder:text-gray-400 ${
-          className || ''
+        className={`${inputBaseClasses} ${borderColorClass} text-gray-900 dark:text-white bg-white dark:bg-gray-700 placeholder:text-gray-500 dark:placeholder:text-gray-400 ${
+          className || ""
         }`}
         // placeholderTextColor prop might not be needed if using placeholder:text-* utility
         {...props}
       />
-      {error && <Text className="mt-1 text-xs text-red-500">{error}</Text>}{/* Changed from styles.errorText */}
+      {error && <Text className="mt-1 text-xs text-red-500">{error}</Text>}
+      {/* Changed from styles.errorText */}
     </View>
   );
 };
 
-export default StyledInput; 
+export default StyledInput;
