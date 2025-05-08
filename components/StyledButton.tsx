@@ -1,14 +1,14 @@
 import React from "react";
 import {
-  TouchableOpacity,
+  Pressable,
   Text,
   ActivityIndicator,
-  TouchableOpacityProps,
+  PressableProps,
   ViewStyle,
   TextStyle,
 } from "react-native";
 
-interface StyledButtonProps extends TouchableOpacityProps {
+interface StyledButtonProps extends PressableProps {
   title: string;
   loading?: boolean;
   variant?: "primary" | "secondary" | "outline"; // Add variants for different styles
@@ -29,7 +29,9 @@ const StyledButton: React.FC<StyledButtonProps> = ({
     "py-3 px-6 rounded-lg flex-row justify-center items-center ";
   let baseTextClasses = "text-base font-semibold ";
 
-  if (disabled || loading) {
+  const disabledOrLoading = disabled || loading;
+
+  if (disabledOrLoading) {
     baseButtonClasses += "bg-gray-400 dark:bg-gray-600 ";
     baseTextClasses += "text-gray-600 dark:text-gray-400 ";
   } else {
@@ -51,14 +53,18 @@ const StyledButton: React.FC<StyledButtonProps> = ({
   }
 
   return (
-    <TouchableOpacity
-      className={`${baseButtonClasses} ${buttonClassName}`.trim()}
-      disabled={disabled || loading}
+    <Pressable
+      className={`${baseButtonClasses} ${
+        disabledOrLoading ? "opacity-70" : ""
+      } ${buttonClassName}`.trim()}
+      disabled={disabledOrLoading}
       {...props}
     >
       {loading ? (
         <ActivityIndicator
-          color={variant === "outline" ? "#3b82f6" : "#ffffff"}
+          color={
+            variant === "outline" && !disabledOrLoading ? "#3b82f6" : "#ffffff"
+          }
           size="small"
         />
       ) : (
@@ -66,7 +72,7 @@ const StyledButton: React.FC<StyledButtonProps> = ({
           {title}
         </Text>
       )}
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 
