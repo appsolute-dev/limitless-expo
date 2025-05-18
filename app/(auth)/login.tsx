@@ -64,7 +64,7 @@ export default function LoginPage() {
           Sign in to continue
         </Text>
 
-        <StyledInput
+        {/* <StyledInput
           label="Email Address"
           placeholder="you@example.com"
           value={email}
@@ -89,7 +89,7 @@ export default function LoginPage() {
           secureTextEntry
           error={passwordError}
           className="mb-6"
-        />
+        /> */}
 
         <StyledButton
           title="Sign In"
