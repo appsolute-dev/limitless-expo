@@ -15,6 +15,7 @@
     },
     "ios": {
       "supportsTablet": true,
+      "bundleIdentifier": "com.limitless.limitless",
       "infoPlist": {
         "NSHealthShareUsageDescription": "We need access to your health data to provide insights and track your progress.",
         "NSHealthUpdateUsageDescription": "We need to update your health data to keep your records accurate.",
