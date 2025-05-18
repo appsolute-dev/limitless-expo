@@ -55,7 +55,7 @@ export default function LoginPage() {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       className="flex-1 justify-center bg-gray-100 dark:bg-gray-900"
     >
-      <View className="p-8 w-full max-w-md mx-auto">
+      <View className="p-8 w-full max-w-md mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-md">
         {/* <Logo className="mb-8 self-center" /> */}
         <Text className="text-3xl font-bold text-center mb-2 text-gray-800 dark:text-white">
           Welcome Back!
