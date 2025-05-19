@@ -1,44 +1,51 @@
-import React, { useState } from 'react';
-import { View, Text, Alert, KeyboardAvoidingView, Platform, TouchableOpacity } from 'react-native';
-import { useRouter } from 'expo-router';
-import StyledInput from '@/components/StyledInput'; // Assuming you have a StyledInput component
-import StyledButton from '@/components/StyledButton'; // Assuming you have a StyledButton component
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  Alert,
+  KeyboardAvoidingView,
+  Platform,
+  TouchableOpacity,
+} from "react-native";
+import { useRouter } from "expo-router";
+import StyledInput from "@/components/StyledInput"; // Assuming you have a StyledInput component
+import StyledButton from "@/components/StyledButton"; // Assuming you have a StyledButton component
 
 export default function ForgotPasswordScreen() {
-  const [email, setEmail] = useState('');
-  const [emailError, setEmailError] = useState('');
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const handlePasswordReset = async () => {
     if (!email) {
-      setEmailError('Please enter your email address.');
+      setEmailError("Please enter your email address.");
       return;
     }
     // Basic email validation
     if (!/\S+@\S+\.\S+/.test(email)) {
-      setEmailError('Please enter a valid email address.');
+      setEmailError("Please enter a valid email address.");
       return;
     }
-    setEmailError('');
+    setEmailError("");
     setLoading(true);
 
     // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    await new Promise((resolve) => setTimeout(resolve, 1500));
     setLoading(false);
 
     // Replace with your actual password reset logic (e.g., API call to Firebase, Supabase, etc.)
     Alert.alert(
-      'Password Reset',
+      "Password Reset",
       `If an account exists for ${email}, a password reset link has been sent.`
     );
     // Optionally navigate back to login or a confirmation screen
-    // router.push('/login'); 
+    // router.push('/login');
   };
 
   return (
     <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
       className="flex-1 justify-center bg-white dark:bg-gray-900"
     >
       <View className="p-8 w-full max-w-md mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-md">
@@ -55,7 +62,7 @@ export default function ForgotPasswordScreen() {
           value={email}
           onChangeText={(text) => {
             setEmail(text);
-            if (emailError) setEmailError('');
+            if (emailError) setEmailError("");
           }}
           keyboardType="email-address"
           autoCapitalize="none"
@@ -73,7 +80,7 @@ export default function ForgotPasswordScreen() {
         />
 
         <TouchableOpacity onPress={() => router.back()} className="mt-6">
-          <Text className="text-center text-blue-500 dark:text-blue-400 hover:underline">
+          <Text className="text-center text-blue-500 dark:text-blue-400">
             Back to Login
           </Text>
         </TouchableOpacity>

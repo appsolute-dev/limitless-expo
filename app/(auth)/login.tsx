@@ -64,7 +64,7 @@ export default function LoginPage() {
           Sign in to continue
         </Text>
 
-        {/* <StyledInput
+        <StyledInput
           label="Email Address"
           placeholder="you@example.com"
           value={email}
@@ -87,7 +87,7 @@ export default function LoginPage() {
           }}
           secureTextEntry
           error={passwordError}
-        /> */}
+        />
 
         <StyledButton
           title="Sign In"
@@ -98,11 +98,10 @@ export default function LoginPage() {
         />
 
         <View className="mt-4 flex-row justify-center">
-          <Pressable
-            onPress={() => router.push("/forgot-password")}
-            className="bg-blue-500 p-2 rounded"
-          >
-            <Text className="text-red-500">Go to Login</Text>
+          <Pressable onPress={() => router.push("/forgot-password")}>
+            <Text className="text-sm text-blue-500 dark:text-blue-400">
+              Forgot Password?
+            </Text>
           </Pressable>
         </View>
       </View>
