@@ -7,7 +7,7 @@ export default function AuthLayout() {
       <Stack.Screen name="login" />
       {/* You can add other auth screens here later, e.g.: */}
       {/* <Stack.Screen name="signup" /> */}
-      {/* <Stack.Screen name="forgot-password" /> */}
+      <Stack.Screen name="forgot-password" />
     </Stack>
   );
 }

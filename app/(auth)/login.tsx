@@ -6,6 +6,7 @@ import {
   Alert,
   KeyboardAvoidingView,
   Platform,
+  TouchableOpacity,
 } from "react-native";
 import { Link, useRouter } from "expo-router";
 import StyledInput from "@/components/StyledInput"; // Assuming path is correct
@@ -96,6 +97,14 @@ export default function LoginPage() {
           disabled={loading}
           buttonClassName="w-full"
         />
+
+        <View className="mt-4 flex-row justify-center">
+          <TouchableOpacity onPress={() => router.push('/(auth)/forgot-password')}>
+            <Text className="text-sm text-blue-500 dark:text-blue-400 hover:underline">
+              Forgot Password?
+            </Text>
+          </TouchableOpacity>
+        </View>
 
         <View className="mt-6 flex-row justify-center">
           <Text className="text-gray-600 dark:text-gray-400">
