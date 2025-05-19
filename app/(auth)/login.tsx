@@ -53,7 +53,7 @@ export default function LoginPage() {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
-      className="flex-1 justify-center bg-gray-100 dark:bg-gray-900"
+      className="flex-1 justify-center bg-red-500 dark:bg-gray-900"
     >
       <View className="p-8 w-full max-w-md mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-md">
         {/* <Logo className="mb-8 self-center" /> */}
@@ -64,7 +64,7 @@ export default function LoginPage() {
           Sign in to continue
         </Text>
 
-        {/* <StyledInput
+        <StyledInput
           label="Email Address"
           placeholder="you@example.com"
           value={email}
@@ -75,9 +75,9 @@ export default function LoginPage() {
           keyboardType="email-address"
           autoCapitalize="none"
           error={emailError}
-        /> */}
+        />
 
-        {/* <StyledInput
+        <StyledInput
           label="Password"
           placeholder="••••••••"
           value={password}
@@ -95,7 +95,7 @@ export default function LoginPage() {
           loading={loading}
           disabled={loading}
           buttonClassName="w-full"
-        /> */}
+        />
 
         <View className="mt-6 flex-row justify-center">
           <Text className="text-gray-600 dark:text-gray-400">
