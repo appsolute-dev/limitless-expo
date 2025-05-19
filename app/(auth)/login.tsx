@@ -98,34 +98,11 @@ export default function LoginPage() {
         />
 
         <View className="mt-4 flex-row justify-center">
-          <Pressable onPress={() => router.push("/(auth)/forgot-password")}>
+          <Pressable onPress={() => router.push("/forgot-password")}>
             <Text className="text-sm text-blue-500 dark:text-blue-400 hover:underline">
               Forgot Password?
             </Text>
           </Pressable>
-        </View>
-
-        <View className="mt-6 flex-row justify-center">
-          <Text className="text-gray-600 dark:text-gray-400">
-            Don't have an account?{" "}
-          </Text>
-          <Link href="/signup" asChild>
-            <Pressable>
-              <Text className="font-semibold text-blue-500 hover:text-blue-600">
-                Sign Up
-              </Text>
-            </Pressable>
-          </Link>
-        </View>
-
-        <View className="mt-4 flex-row justify-center">
-          <Link href="/forgot-password" asChild>
-            <Pressable>
-              <Text className="text-sm text-gray-500 hover:text-gray-600">
-                Forgot Password?
-              </Text>
-            </Pressable>
-          </Link>
         </View>
       </View>
     </KeyboardAvoidingView>
