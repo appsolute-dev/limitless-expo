@@ -1,11 +1,22 @@
 module.exports = {
   content: [
-    "./App.{js,jsx,ts,tsx}",
     "./app/**/*.{js,jsx,ts,tsx}",
+    "./app/(app)/**/*.{js,jsx,ts,tsx}",
+    "./app/(tabs)/**/*.{js,jsx,ts,tsx}",
+    "./App.{js,jsx,ts,tsx}",
     "./components/**/*.{js,jsx,ts,tsx}",
+    "./features/**/*.{js,jsx,ts,tsx}",
   ],
+  presets: [require("nativewind/preset")],
   theme: {
-    extend: {},
+    extend: {
+      borderRadius: {
+        xxl: "23px",
+      },
+      colors: {
+        primary: "261 13.5% 79.6%",
+      },
+    },
   },
   plugins: [],
 };

@@ -75,10 +75,9 @@ export default function LoginPage() {
           keyboardType="email-address"
           autoCapitalize="none"
           error={emailError}
-          className="mb-4"
-        />
+        /> */}
 
-        <StyledInput
+        {/* <StyledInput
           label="Password"
           placeholder="••••••••"
           value={password}
@@ -88,15 +87,15 @@ export default function LoginPage() {
           }}
           secureTextEntry
           error={passwordError}
-          className="mb-6"
-        /> */}
+        />
 
         <StyledButton
           title="Sign In"
           onPress={handleLogin}
           loading={loading}
           disabled={loading}
-        />
+          buttonClassName="w-full"
+        /> */}
 
         <View className="mt-6 flex-row justify-center">
           <Text className="text-gray-600 dark:text-gray-400">
