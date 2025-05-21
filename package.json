@@ -13,6 +13,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "@expo/metro-config": "^0.20.14",
     "@expo/vector-icons": "^14.1.0",
     "@react-navigation/drawer": "^7.3.11",
     "@react-navigation/native": "^7.1.6",
