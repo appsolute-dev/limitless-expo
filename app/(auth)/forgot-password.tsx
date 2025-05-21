@@ -79,11 +79,13 @@ export default function ForgotPasswordScreen() {
           buttonClassName="w-full mt-6"
         />
 
-        <TouchableOpacity onPress={() => router.back()} className="mt-6">
-          <Text className="text-center text-blue-500 dark:text-blue-400">
-            Back to Login
-          </Text>
-        </TouchableOpacity>
+        <View className="mt-4 flex-row justify-center">
+          <Pressable onPress={() => router.push("/forgot-password")}>
+            <Text className="text-sm text-primary dark:text-primary">
+              Forgot Password?
+            </Text>
+          </Pressable>
+        </View>
       </View>
     </KeyboardAvoidingView>
   );

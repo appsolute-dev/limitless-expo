@@ -99,7 +99,7 @@ export default function LoginPage() {
 
         <View className="mt-4 flex-row justify-center">
           <Pressable onPress={() => router.push("/forgot-password")}>
-            <Text className="text-sm text-blue-500 dark:text-blue-400">
+            <Text className="text-sm text-primary dark:text-primary">
               Forgot Password?
             </Text>
           </Pressable>
