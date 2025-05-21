@@ -26,30 +26,23 @@ export default function LoginPage() {
   const router = useRouter();
 
   const handleLogin = async () => {
-    // Clear previous errors
-    setEmailError("");
-    setPasswordError("");
+    // Sequential validation - check email first, then password
     
-    let valid = true;
-    let errorMessage = "";
-    
+    // Check if email is provided
     if (!email) {
-      valid = false;
-      errorMessage = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-      valid = false;
-      errorMessage = "Please enter a valid email address";
+      Alert.alert("Login Error", "Please enter an email address.");
+      return;
+    } 
+    
+    // Check email format
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      Alert.alert("Login Error", "Please enter a valid email address.");
+      return;
     }
     
+    // Check if password is provided
     if (!password) {
-      valid = false;
-      errorMessage = errorMessage ? 
-        `${errorMessage}\nPassword is required` : 
-        "Password is required";
-    }
-    
-    if (!valid) {
-      Alert.alert("Login Error", errorMessage);
+      Alert.alert("Login Error", "Please enter a password.");
       return;
     }
 
