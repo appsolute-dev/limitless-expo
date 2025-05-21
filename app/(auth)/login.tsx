@@ -6,7 +6,10 @@ import {
   Alert,
   KeyboardAvoidingView,
   Platform,
+  TouchableOpacity,
+  TextInput,
 } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 import { Link, useRouter } from "expo-router";
 import StyledInput from "@/components/StyledInput"; // Assuming path is correct
 import StyledButton from "@/components/StyledButton"; // Assuming path is correct
@@ -19,6 +22,7 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
 
   const handleLogin = async () => {
@@ -77,17 +81,41 @@ export default function LoginPage() {
           error={emailError}
         />
 
-        <StyledInput
-          label="Password"
-          placeholder="••••••••"
-          value={password}
-          onChangeText={(text) => {
-            setPassword(text);
-            if (passwordError) setPasswordError("");
-          }}
-          secureTextEntry
-          error={passwordError}
-        />
+        <View className="relative mb-4">
+          {/* Label */}
+          <Text className="mb-1 text-sm text-gray-700 dark:text-gray-300">
+            Password
+          </Text>
+          
+          {/* Input with icon */}
+          <View className="relative">
+            <TextInput
+              className="border rounded-md px-4 py-3 pr-12 text-base min-h-[48px] border-gray-300 text-gray-900 dark:text-white bg-white dark:bg-gray-700"
+              placeholder="••••••••"
+              placeholderTextColor="#9ca3af"
+              value={password}
+              onChangeText={(text: string) => {
+                setPassword(text);
+                if (passwordError) setPasswordError("");
+              }}
+              secureTextEntry={!showPassword}
+            />
+            
+            <Pressable
+              className="absolute right-3 top-0 bottom-0 flex items-center justify-center w-10"
+              onPress={() => setShowPassword(!showPassword)}
+            >
+              <Ionicons
+                name={showPassword ? "eye-off" : "eye"}
+                size={24}
+                color="#2DC7EA"
+              />
+            </Pressable>
+          </View>
+          
+          {/* Error message */}
+          {passwordError && <Text className="mt-1 text-xs text-red-500">{passwordError}</Text>}
+        </View>
 
         <StyledButton
           title="Login"
