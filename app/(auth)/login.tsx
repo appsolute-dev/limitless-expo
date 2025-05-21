@@ -90,7 +90,7 @@ export default function LoginPage() {
           {/* Input with icon */}
           <View className="relative">
             <TextInput
-              className="border rounded-md px-4 py-3 pr-12 text-base min-h-[48px] border-gray-300 text-gray-900 dark:text-white bg-white dark:bg-gray-700"
+              className="border rounded-md px-4 py-3 pr-12 text-base min-h-[48px] border-primary text-gray-900 dark:text-white bg-white dark:bg-gray-700"
               placeholder="••••••••"
               placeholderTextColor="#9ca3af"
               value={password}

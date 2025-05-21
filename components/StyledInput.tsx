@@ -25,13 +25,13 @@ const StyledInput: React.FC<StyledInputProps> = ({
   // Base classes
   const inputBaseClasses = "border rounded-md px-4 py-3 text-base min-h-[48px]";
   
-  // Dynamic classes based on error and focus state
-  let borderColorClass = "border-gray-300";
+  // Dynamic classes based on error state only
+  // Use primary color for borders by default
+  let borderColorClass = "border-primary";
   
+  // Only override with red if there's an error
   if (error) {
     borderColorClass = "border-red-500";
-  } else if (isFocused) {
-    borderColorClass = "border-primary";
   }
   // Placeholder color can be set with placeholder:text-gray-500 for example
   // Text color can be text-black dark:text-white for example
