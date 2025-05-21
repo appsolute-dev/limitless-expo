@@ -26,7 +26,7 @@ const StyledButton: React.FC<StyledButtonProps> = ({
   ...props
 }) => {
   let baseButtonClasses =
-    "py-3 px-6 rounded-lg flex-row justify-center items-center ";
+    "py-3 px-6 rounded-full flex-row justify-center items-center ";
   let baseTextClasses = "text-base font-semibold ";
 
   const disabledOrLoading = disabled || loading;
