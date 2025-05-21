@@ -40,6 +40,24 @@ eas build --profile production --platform android
 eas build --profile production  # Build for both platforms
 ```
 
+### Over-the-Air Updates
+
+The app is configured to use Expo's EAS Update for over-the-air updates. This allows you to push updates to your app without requiring a new build or app store submission.
+
+```bash
+# Create and push an update to the staging channel
+eas update --branch staging
+
+# Create and push an update to the production channel
+eas update --branch production
+
+# Create an update with a specific message
+eas update --branch staging --message "Fixed login screen bugs"
+
+# View your update history in the Expo dashboard
+# https://expo.dev/accounts/limitless-training/projects/limitless/updates
+```
+
 ### Submit to App Stores
 
 ```bash
