@@ -37,16 +37,16 @@ const StyledButton: React.FC<StyledButtonProps> = ({
   } else {
     switch (variant) {
       case "secondary":
-        baseButtonClasses += "bg-purple-600 hover:bg-purple-700 ";
+        baseButtonClasses += "bg-primary hover:bg-primary/90 ";
         baseTextClasses += "text-white ";
         break;
       case "outline":
-        baseButtonClasses += "border border-blue-500 hover:bg-blue-50 ";
-        baseTextClasses += "text-blue-500 ";
+        baseButtonClasses += "border border-primary hover:bg-primary/10 ";
+        baseTextClasses += "text-primary ";
         break;
       case "primary":
       default:
-        baseButtonClasses += "bg-blue-500 hover:bg-blue-600 ";
+        baseButtonClasses += "bg-primary hover:bg-primary/90 ";
         baseTextClasses += "text-white ";
         break;
     }
@@ -63,7 +63,7 @@ const StyledButton: React.FC<StyledButtonProps> = ({
       {loading ? (
         <ActivityIndicator
           color={
-            variant === "outline" && !disabledOrLoading ? "#3b82f6" : "#ffffff"
+            variant === "outline" && !disabledOrLoading ? "#2DC7EA" : "#ffffff"
           }
           size="small"
         />
