@@ -5,7 +5,7 @@ import {
   Alert,
   KeyboardAvoidingView,
   Platform,
-  TouchableOpacity,
+  Pressable,
 } from "react-native";
 import { useRouter } from "expo-router";
 import StyledInput from "@/components/StyledInput"; // Assuming you have a StyledInput component
@@ -80,9 +80,9 @@ export default function ForgotPasswordScreen() {
         />
 
         <View className="mt-4 flex-row justify-center">
-          <Pressable onPress={() => router.push("/forgot-password")}>
+          <Pressable onPress={() => router.push("/login")}>
             <Text className="text-sm text-primary dark:text-primary">
-              Forgot Password?
+              Back to Login
             </Text>
           </Pressable>
         </View>
