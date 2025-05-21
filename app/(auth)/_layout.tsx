@@ -3,7 +3,10 @@ import React from 'react';
 
 export default function AuthLayout() {
   return (
-    <Stack screenOptions={{ headerShown: false }}>
+    <Stack 
+      screenOptions={{ headerShown: false }}
+      initialRouteName="login"
+    >
       <Stack.Screen name="login" />
       {/* You can add other auth screens here later, e.g.: */}
       {/* <Stack.Screen name="signup" /> */}
