@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { TextInput, View, Text, TextInputProps } from "react-native";
 // Assuming Colors and useColorScheme are for dynamic theming not directly handled by Tailwind here without config
 // import Colors from "@/constants/Colors";
@@ -19,17 +19,26 @@ const StyledInput: React.FC<StyledInputProps> = ({
   // const colorScheme = useColorScheme() ?? "light";
   // const themeColors = Colors[colorScheme];
 
+  // Add state for focus
+  const [isFocused, setIsFocused] = useState(false);
+  
   // Base classes
   const inputBaseClasses = "border rounded-md px-4 py-3 text-base min-h-[48px]";
-  // Dynamic classes based on error state
-  const borderColorClass = error ? "border-red-500" : "border-gray-300";
+  
+  // Dynamic classes based on error and focus state
+  let borderColorClass = "border-gray-300";
+  
+  if (error) {
+    borderColorClass = "border-red-500";
+  } else if (isFocused) {
+    borderColorClass = "border-primary";
+  }
   // Placeholder color can be set with placeholder:text-gray-500 for example
   // Text color can be text-black dark:text-white for example
   // Background color can be bg-white dark:bg-gray-800 for example
 
   return (
     <View className="mb-4">
-      {" "}
       {/* Changed from marginBottom: 15 */}
       {label && (
         <Text className="mb-1 text-sm text-gray-700 dark:text-gray-300">
@@ -41,6 +50,14 @@ const StyledInput: React.FC<StyledInputProps> = ({
         className={`${inputBaseClasses} ${borderColorClass} text-gray-900 dark:text-white bg-white dark:bg-gray-700 placeholder:text-gray-500 dark:placeholder:text-gray-400 ${
           className || ""
         }`}
+        onFocus={(e) => {
+          setIsFocused(true);
+          props.onFocus && props.onFocus(e);
+        }}
+        onBlur={(e) => {
+          setIsFocused(false);
+          props.onBlur && props.onBlur(e);
+        }}
         // placeholderTextColor prop might not be needed if using placeholder:text-* utility
         {...props}
       />
