@@ -7,6 +7,7 @@ import {
   Platform,
   Pressable,
 } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import StyledInput from "@/components/StyledInput"; // Assuming you have a StyledInput component
 import StyledButton from "@/components/StyledButton"; // Assuming you have a StyledButton component
@@ -69,6 +70,8 @@ export default function ForgotPasswordScreen() {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       className="flex-1 justify-center bg-white dark:bg-gray-900"
     >
+      {/* Stack navigator now provides the back button in the header */}
+      
       <View className="p-8 w-full max-w-md mx-auto bg-white dark:bg-gray-800 rounded-lg">
         <Text className="text-3xl font-bold text-center mb-2 text-gray-800 dark:text-white">
           Forgot Password?
