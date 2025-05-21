@@ -28,21 +28,44 @@ export default function LoginPage() {
   const handleLogin = async () => {
     // Sequential validation - check email first, then password
     
+    // Custom alert button
+    const primaryButton = [
+      {
+        text: "OK",
+        onPress: () => {}
+      }
+    ];
+    
+    // Unfortunately, React Native Alert doesn't allow customizing button colors on all platforms
+    // The primary color will be applied automatically on iOS, but not on Android
+    
     // Check if email is provided
     if (!email) {
-      Alert.alert("Login Error", "Please enter an email address.");
+      Alert.alert(
+        "Login Error", 
+        "Please enter an email address.",
+        primaryButton
+      );
       return;
     } 
     
     // Check email format
     if (!/\S+@\S+\.\S+/.test(email)) {
-      Alert.alert("Login Error", "Please enter a valid email address.");
+      Alert.alert(
+        "Login Error", 
+        "Please enter a valid email address.",
+        primaryButton
+      );
       return;
     }
     
     // Check if password is provided
     if (!password) {
-      Alert.alert("Login Error", "Please enter a password.");
+      Alert.alert(
+        "Login Error", 
+        "Please enter a password.",
+        primaryButton
+      );
       return;
     }
 
@@ -53,12 +76,20 @@ export default function LoginPage() {
 
     // Replace with your actual login logic
     if (email === "test@example.com" && password === "password") {
-      Alert.alert("Login Successful", "Welcome back!");
+      Alert.alert(
+        "Login Successful", 
+        "Welcome back!",
+        primaryButton
+      );
       // Navigate to your main app screen, e.g., home or dashboard
       // router.replace('/(drawer)/(tabs)/meal-plan'); // Or wherever your main screen is
       router.replace("/"); // Or your main app entry point after login
     } else {
-      Alert.alert("Login Failed", "Invalid email or password.");
+      Alert.alert(
+        "Login Failed", 
+        "Invalid email or password.",
+        primaryButton
+      );
     }
   };
 
