@@ -90,7 +90,7 @@ export default function LoginPage() {
         />
 
         <StyledButton
-          title="Sign In"
+          title="Login"
           onPress={handleLogin}
           loading={loading}
           disabled={loading}
