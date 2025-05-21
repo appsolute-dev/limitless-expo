@@ -26,16 +26,32 @@ export default function LoginPage() {
   const router = useRouter();
 
   const handleLogin = async () => {
+    // Clear previous errors
+    setEmailError("");
+    setPasswordError("");
+    
     let valid = true;
+    let errorMessage = "";
+    
     if (!email) {
-      setEmailError("Email is required");
       valid = false;
+      errorMessage = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      valid = false;
+      errorMessage = "Please enter a valid email address";
     }
+    
     if (!password) {
-      setPasswordError("Password is required");
       valid = false;
+      errorMessage = errorMessage ? 
+        `${errorMessage}\nPassword is required` : 
+        "Password is required";
     }
-    if (!valid) return;
+    
+    if (!valid) {
+      Alert.alert("Login Error", errorMessage);
+      return;
+    }
 
     setLoading(true);
     // Simulate API call
@@ -50,7 +66,6 @@ export default function LoginPage() {
       router.replace("/"); // Or your main app entry point after login
     } else {
       Alert.alert("Login Failed", "Invalid email or password.");
-      setPasswordError("Invalid email or password.");
     }
   };
 
@@ -74,11 +89,9 @@ export default function LoginPage() {
           value={email}
           onChangeText={(text) => {
             setEmail(text);
-            if (emailError) setEmailError("");
           }}
           keyboardType="email-address"
           autoCapitalize="none"
-          error={emailError}
         />
 
         <View className="relative mb-4">
@@ -96,7 +109,6 @@ export default function LoginPage() {
               value={password}
               onChangeText={(text: string) => {
                 setPassword(text);
-                if (passwordError) setPasswordError("");
               }}
               secureTextEntry={!showPassword}
             />
@@ -113,8 +125,7 @@ export default function LoginPage() {
             </Pressable>
           </View>
           
-          {/* Error message */}
-          {passwordError && <Text className="mt-1 text-xs text-red-500">{passwordError}</Text>}
+          {/* No error message shown - using alerts instead */}
         </View>
 
         <StyledButton
